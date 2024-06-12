@@ -1,0 +1,247 @@
+{
+  "code": 100,
+  "data": {
+    "avatar": [
+      {
+        "pose_id": "Angela-inblackskirt-20220820",
+        "pose_name": "Angela in Black Dress",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/dc4c9111fa61481c9c09aad80d697fb2_1053/preview_talk_2.webp",
+        "default_voice": {
+          "free": "131a436c47064f708210df6628ef8f32",
+          "premium": "131a436c47064f708210df6628ef8f32",
+          "selected": "de6ad44022104ac0872392d1139e9364"
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1707950406,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Anna_public_3_20240108",
+        "pose_name": "Anna in Brown T-shirt",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/3c427d8c81414355b04c2b25a1e7873a_13216/preview_talk_3.webp",
+        "default_voice": {
+          "free": "727e9d6d492e456b9f27708fa8018744",
+          "premium": "aa815b9a80534d928634cb7df4f99754",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1708328932,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Briana_public_3_20240110",
+        "pose_name": "Briana in Brown suit",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/e50a097f50b541749c318dfedfe9c640_13311/preview_talk_4.webp",
+        "default_voice": {
+          "free": "c2958d67f1e74403a0038e3445d93d50",
+          "premium": "c2958d67f1e74403a0038e3445d93d50",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706533495,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Eric_public_pro2_20230608",
+        "pose_name": "Edward in Blue Shirt",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/bab998cb82fb4423b521341a9e962017_2662/preview_target.webp",
+        "default_voice": {
+          "free": "f5a3cb4edbfc4d37b5614ce118be7bc8",
+          "premium": "52b62505407d4f369b9924c2afcdfe72",
+          "selected": null
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1716970810,
+        "share_code": ""
+      },
+      {
+        "pose_id": "josh_lite3_20230714",
+        "pose_name": "Joshua HeyGen CEO",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/10063c743f114722ab6538b35905c51c_3013/preview_target.webp",
+        "default_voice": {
+          "free": "d0db938c61c54a2bba197e36df40374f",
+          "premium": "",
+          "selected": null
+        },
+        "need_remove_background": false,
+        "is_new": false,
+        "created_at": 1706070642,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Justin_public_3_20240308",
+        "pose_name": "Justin in White Shirt",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/9ae54bef2c444d68bbbb63021df4bbbb_14944/preview_target.webp",
+        "default_voice": {
+          "free": "d36f8d1c27054f7baa52c216ad874d16",
+          "premium": "d36f8d1c27054f7baa52c216ad874d16",
+          "selected": null
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1712043502,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Kayla-incasualsuit-20220818",
+        "pose_name": "Kayla in Casual Suit",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/bf83f0f830794d90b509ba6524962e05_1079/preview_talk_2.webp",
+        "default_voice": {
+          "free": "2d5b0e6cf36f460aa7fc47e3eee4ba54",
+          "premium": "c29568d0e4a54715bb62bb40daa67875",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706141833,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Kristin_public_2_20240108",
+        "pose_name": "Kristin in Black Suit",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/f94222a03cee4adaa110761a374cfadc_13181/preview_talk_5.webp",
+        "default_voice": {
+          "free": "1bd001e7e50f421d891986aad5158bc8",
+          "premium": "1bd001e7e50f421d891986aad5158bc8",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706141655,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Lily_public_pro1_20230614",
+        "pose_name": "Leah in Black Suit",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/51267c0f0f2045518a8c66bb1709bf2a_2654/preview_target.webp",
+        "default_voice": {
+          "free": "1bd001e7e50f421d891986aad5158bc8",
+          "premium": "232e3bb29f3b45d695f873503af7068c",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706687188,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Susan_public_2_20240328",
+        "pose_name": "Susan in Black Shirt",
+        "gender": "female",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/5dc05aef0295473da983300f43abf7fd_17860/preview_talk_5.webp",
+        "default_voice": {
+          "free": "c29c6fdb6abe4146be2daa7929f03e41",
+          "premium": "c29c6fdb6abe4146be2daa7929f03e41",
+          "selected": null
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1716970794,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Tyler-incasualsuit-20220721",
+        "pose_name": "Tyler in Casual Suit",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/79b245561ad448e796b7e77cd2773d0b_14263/preview_talk_11.webp",
+        "default_voice": {
+          "free": "d7bbcdd6964c47bdaae26decade4a933",
+          "premium": "ccf05082198240f18053e57ac1dc2b5c",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706141655,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Tyler-inshirt-20220721",
+        "pose_name": "Tyler in Shirt",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/79b245561ad448e796b7e77cd2773d0b_14263/preview_talk_2.webp",
+        "default_voice": {
+          "free": "d7bbcdd6964c47bdaae26decade4a933",
+          "premium": "ccf05082198240f18053e57ac1dc2b5c",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706141655,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Tyler-insuit-20220721",
+        "pose_name": "Tyler in Suit",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/79b245561ad448e796b7e77cd2773d0b_14263/preview_talk_5.webp",
+        "default_voice": {
+          "free": "d7bbcdd6964c47bdaae26decade4a933",
+          "premium": "ccf05082198240f18053e57ac1dc2b5c",
+          "selected": ""
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1706141655,
+        "share_code": ""
+      },
+      {
+        "pose_id": "Wade_public_2_20240228",
+        "pose_name": "Wade in Black Jacket",
+        "gender": "male",
+        "status": "ACTIVE",
+        "is_public": true,
+        "normal_preview": "https://files.heygen.ai/avatar/v3/2bf6af4afbc24ad0ae8e1f2f5a8ac25b_15204/preview_talk_3.webp",
+        "default_voice": {
+          "free": "e17b99e1b86e47e8b7f4cae0f806aa78",
+          "premium": "e17b99e1b86e47e8b7f4cae0f806aa78",
+          "selected": null
+        },
+        "need_remove_background": true,
+        "is_new": false,
+        "created_at": 1712045455,
+        "share_code": ""
+      }
+    ]
+  },
+  "msg": null,
+  "message": null
+}
