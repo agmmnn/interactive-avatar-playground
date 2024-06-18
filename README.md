@@ -11,14 +11,14 @@ bun dev
 
 ## Features
 
-[x] Remove BG
-[x] ScreenShot current frame
-[x] Record Stream video
-[x] Custom BG
-[] Multiple LLMs
-[] Speech to text
-[] Chatbox
-[] Save conversation history
+- [x] Remove BG
+- [x] ScreenShot current frame
+- [x] Record Stream video
+- [x] Custom BG
+- [] Multiple LLMs
+- [] Speech to text
+- [] Chatbox
+- [] Save conversation history
 
 ## File Structure
 
