@@ -11,17 +11,14 @@ bun dev
 
 ## Features
 
-- Remove BG
-- ScreenShot current frame
-- Record Stream video
-
-* Multiple LLMs
-* Speech to text
-* Custom bg
-* Chatbox
-* Save conversation history
-
-* https://github.com/HumeAI/hume-evi-next-js-starter/blob/main/components/Messages.tsx
+[x] Remove BG
+[x] ScreenShot current frame
+[x] Record Stream video
+[x] Custom BG
+[] Multiple LLMs
+[] Speech to text
+[] Chatbox
+[] Save conversation history
 
 ## File Structure
 
