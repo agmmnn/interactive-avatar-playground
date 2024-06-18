@@ -15,12 +15,10 @@ bun dev
 - [x] ScreenShot current frame
 - [x] Record Stream video
 - [x] Custom BG
-- [] Multiple LLMs
-- [] Speech to text
-- [] Chatbox
-- [] Save conversation history
-
-## File Structure
+- [ ] Multiple LLMs
+- [ ] Speech to text
+- [ ] Chatbox
+- [ ] Save conversation history
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
