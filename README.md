@@ -1,30 +1,30 @@
-![](https://github.com/agmmnn/streaming-avatar-nextjs-starter/assets/16024979/ba6173db-2d12-4c04-a269-19d3c3e5d0a7)
+<img src="https://github.com/agmmnn/streaming-avatar-nextjs-starter/assets/16024979/ba6173db-2d12-4c04-a269-19d3c3e5d0a7" height="60"/>
 
 # Streaming Avatar Next.js Demo
 
-First, run the development server:
+This project is a demonstration of how to use HeyGen's [Streaming Avatar](https://docs.heygen.com/docs/streaming-avatars-api) service in your application built with Next.js. It offers various features to enhance your streaming experience, including background removal, screenshot capabilities, video recording, and more.
+
+## Getting Started
+
+To get started with the development server, follow these steps:
 
 ```bash
 bun install
 bun dev
 ```
 
+The server will start on [http://localhost:3000](http://localhost:3000). Open this URL in your browser to view the application.
+
 ## Features
 
-- [x] Remove BG
-- [x] ScreenShot current frame
-- [x] Record Stream video
-- [x] Custom BG
-- [ ] Multiple LLMs
-- [ ] Speech to text
-- [ ] Chatbox
-- [ ] Save conversation history
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [x] **Remove Background:** Automatically remove the green background from your video stream.
+- [x] **Screenshot Current Frame:** Capture a screenshot of the current frame in your video stream.
+- [x] **Record Stream Video:** Record your stream video and download.
+- [x] **Custom Background:** Replace your background with a custom image or video.
+- [ ] **Multiple LLMs:** Integrate with multiple Language Learning Models (coming soon).
+- [ ] **Speech to Text:** Convert speech to text in real-time (coming soon).
+- [ ] **Chatbox:** Interactive chatbox for communication. (coming soon).
+- [ ] **Save Conversation History:** Save and retrieve past conversation history (coming soon).
 
 ## Learn More
 
