@@ -96,7 +96,7 @@ export function Dashboard() {
             aria-label="Home"
             onClick={() => (window.location.href = "/")}
           >
-            <Image src="/logo-sm.png" alt="logo" width={24} height={24} />
+            <Image src="/logo.png" alt="logo" width={24} height={24} />
           </Button>
         </div>
 
