@@ -170,7 +170,10 @@ export function Dashboard() {
           </Button>
 
           <Button variant="outline" size="icon" className="text-sm" asChild>
-            <Link href="https://github.com/" target="_blank">
+            <Link
+              href="https://github.com/agmmnn/streaming-avatar-playground"
+              target="_blank"
+            >
               <GitHubLogoIcon className="size-5" />
             </Link>
           </Button>
