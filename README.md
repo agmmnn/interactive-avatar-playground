@@ -4,7 +4,7 @@
 
 This project is a demonstration of how to use HeyGen's [Streaming Avatar](https://docs.heygen.com/docs/streaming-avatars-api) service in your application built with Next.js. It offers various features to enhance your streaming experience, including background removal, screenshot capabilities, video recording, and more.
 
-https://github.com/agmmnn/streaming-avatar-playground/assets/16024979/e00483f8-ff64-40d5-bf9e-44c84c3c2af9
+https://github.com/agmmnn/streaming-avatar-playground/assets/16024979/76c08640-189d-4354-a1b7-397b80d2f197
 
 ## Getting Started
 
