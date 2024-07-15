@@ -1,5 +1,7 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { generateText } from "ai"
+import { useChat } from "ai/react"
+import { chromeai } from "chrome-ai"
 import { AnimatePresence, motion } from "framer-motion"
 import { useAtom } from "jotai"
 import {
@@ -7,6 +9,7 @@ import {
   BotMessageSquareIcon,
   Mic,
   Paperclip,
+  PauseIcon,
   SpeechIcon,
 } from "lucide-react"
 
@@ -35,56 +38,104 @@ export function Chat() {
   const [, setDebug] = useAtom(debugAtom)
   const [chatMode, setChatMode] = useAtom(chatModeAtom)
   const [providerModel, setProviderModel] = useAtom(providerModelAtom)
+  const [isLoadingChat, setIsLoadingChat] = useState(false)
 
-  const textAreaRef = useRef<HTMLTextAreaElement>(null)
+  const {
+    input,
+    setInput,
+    handleSubmit,
+    handleInputChange,
+    messages,
+    isLoading,
+    error,
+    stop,
+  } = useChat({
+    streamMode: "stream-data",
+    onResponse: (response) => {
+      console.log("ChatGPT Response:", response)
+    },
+    onFinish: async () => {
+      setIsLoadingChat(false)
+    },
+    onError: (error) => {
+      console.error("Error:", error)
+    },
+    initialMessages: [
+      {
+        id: "1",
+        role: "system",
+        content: "You are a helpful assistant.",
+      },
+    ],
+  })
 
   async function handleSpeak() {
-    if (!avatar) return
-    textAreaRef.current.value = ""
-    let resultData = inputText
-
-    if (chatMode) {
-      try {
-        const response = await fetch("/api/chat", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            providerModel: providerModel,
-            prompt: inputText,
-          }),
-        })
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.statusText}`)
-        }
-
-        const result = await response.json()
-        resultData = result.data // Use the fetched data in chat mode
-      } catch (error) {
-        console.error(error)
-        setDebug(error.message)
-        return
-      }
+    if (!avatar.current) {
+      setDebug("Avatar API not initialized")
+      return
     }
 
-    try {
-      await avatar.current!.speak({
-        taskRequest: {
-          text: resultData,
-          sessionId: sessionData?.sessionId,
-        },
+    await avatar.current
+      .speak({
+        taskRequest: { text: input, sessionId: sessionData?.sessionId },
       })
-      setInputText(chatMode ? resultData : "")
-    } catch (error) {
-      console.error(error)
-      setDebug(error.message)
+      .catch((e) => {
+        setDebug(e.message)
+      })
+  }
+
+  const sentenceBuffer = useRef("")
+  const processedSentences = useRef(new Set())
+
+  useEffect(() => {
+    const lastMsg = messages[messages.length - 1]
+
+    if (lastMsg.role === "assistant" && lastMsg.content) {
+      // Update buffer with the latest message content
+      sentenceBuffer.current += ` ${lastMsg.content}`.trim()
+
+      // Split by sentence-ending punctuation
+      const sentences = sentenceBuffer.current.split(/(?<=[.!?])/)
+
+      // Process sentences
+      sentences.forEach((sentence) => {
+        const trimmedSentence = sentence.trim()
+        if (
+          trimmedSentence &&
+          /[.!?]$/.test(trimmedSentence) &&
+          !processedSentences.current.has(trimmedSentence)
+        ) {
+          console.log("Complete Sentence:", trimmedSentence)
+          processedSentences.current.add(trimmedSentence) // Mark as logged
+
+          avatar.current!.speak({
+            taskRequest: {
+              text: trimmedSentence,
+              sessionId: sessionData?.sessionId,
+            },
+          })
+        }
+      })
+
+      sentenceBuffer.current = "" // Reset buffer after processing
     }
+  }, [messages])
+
+  async function handleInterrupt() {
+    if (!avatar.current) {
+      setDebug("Avatar API not initialized")
+      return
+    }
+    stop()
+    await avatar.current
+      .interrupt({ interruptRequest: { sessionId: sessionData?.sessionId } })
+      .catch((e) => {
+        setDebug(e.message)
+      })
   }
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div className="mb-2 flex w-full items-center justify-end space-x-2">
         <Tooltip>
           <TooltipTrigger asChild>
@@ -126,7 +177,12 @@ export function Chat() {
             <div className="flex flex-col">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="rounded-full">
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full"
+                  >
                     <Paperclip className="size-5" />
                     <Input multiple={false} type="file" className="hidden" />
                     <span className="sr-only">Attach file</span>
@@ -140,9 +196,9 @@ export function Chat() {
               <Textarea
                 id="prompt-textarea"
                 data-id="root"
-                value={inputText}
-                ref={textAreaRef}
-                onChange={(v) => setInputText(v.target.value)}
+                name="prompt"
+                value={input}
+                onChange={handleInputChange}
                 dir="auto"
                 rows={1}
                 className="h-[40px] min-h-[40px] resize-none overflow-y-hidden rounded-none border-0 px-0 shadow-none focus:ring-0 focus-visible:ring-0"
@@ -151,67 +207,45 @@ export function Chat() {
 
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="rounded-full"
+                >
                   <Mic className="size-5" />
                   <span className="sr-only">Use Microphone</span>
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">Use Microphone</TooltipContent>
             </Tooltip>
+
             <Button
-              // disabled={!mediaStreamActive}
+              // disabled={!isLoading}
               size="icon"
+              type="button"
               className="rounded-full"
-              onClick={handleSpeak}
+              onClick={handleInterrupt}
+            >
+              <PauseIcon className="size-5" />
+            </Button>
+
+            <Button
+              // disabled={!isLoading}
+              size="icon"
+              type={chatMode ? "submit" : "button"}
+              className="rounded-full"
+              onClick={() => {
+                if (!chatMode) {
+                  handleSpeak()
+                }
+              }}
             >
               <ArrowUp className="size-5" />
             </Button>
           </div>
         </div>
       </div>
-
-      {/* <div className="relative overflow-hidden rounded-lg border bg-background focus-within:ring-1 focus-within:ring-ring">
-        <Label htmlFor="message" className="sr-only">
-          Message
-        </Label>
-        <Input
-          id="message"
-          placeholder="Type your message here..."
-          className="resize-none border-0 p-3 shadow-none focus-visible:ring-0"
-          value={inputText}
-          onChange={(v) => setText(v.target.value)}
-        />
-        <div className="flex items-center p-3 pt-0">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Paperclip className="size-4" />
-                <span className="sr-only">Attach file</span>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="top">Attach File</TooltipContent>
-          </Tooltip>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Mic className="size-4" />
-                <span className="sr-only">Use Microphone</span>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="top">Use Microphone</TooltipContent>
-          </Tooltip>
-
-          <Button
-            onClick={handleSpeak}
-            disabled={mediaStreamActive ? false : true}
-            size="sm"
-            className="ml-auto gap-1.5"
-          >
-            Send Message
-            <CornerDownLeft className="size-3.5" />
-          </Button>
-        </div>
-      </div> */}
-    </>
+    </form>
   )
 }

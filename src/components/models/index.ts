@@ -57,4 +57,10 @@ export const models = [
     icon: "mistral",
     provider: "mistral",
   },
+  {
+    model: "generic",
+    company: "chrome ai",
+    icon: "mistral",
+    provider: "chromeai",
+  },
 ]

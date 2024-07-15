@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Image from "next/image"
+import { generateText } from "ai"
+import { chromeai } from "chrome-ai"
 import { useAtom } from "jotai"
 import { Bird, Rabbit, Turtle } from "lucide-react"
 
@@ -19,6 +21,11 @@ import {
 import { Slider } from "../ui/slider"
 import { Textarea } from "../ui/textarea"
 
+const chromeModel = chromeai("generic", {
+  temperature: 0.5,
+  topK: 5,
+})
+
 export function Providers() {
   const [providerModel, setProviderModel] = useAtom(providerModelAtom)
   const [temperature, setTemperature] = useAtom(temperatureAtom)
@@ -31,6 +38,15 @@ export function Providers() {
   }
 
   async function handleChat() {
+    if (providerModel === "chromeai:generic") {
+      const result = await generateText({
+        model: chromeModel,
+        prompt: prompt,
+      })
+      setResult(result.text)
+      return
+    }
+
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
