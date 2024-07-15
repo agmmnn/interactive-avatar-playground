@@ -21,7 +21,7 @@ import {
 import { Slider } from "../ui/slider"
 import { Textarea } from "../ui/textarea"
 
-const chromeModel = chromeai("generic", {
+const chromeModel = chromeai("text", {
   temperature: 0.5,
   topK: 5,
 })
@@ -38,12 +38,12 @@ export function Providers() {
   }
 
   async function handleChat() {
-    if (providerModel === "chromeai:generic") {
-      const result = await generateText({
-        model: chromeModel,
-        prompt: prompt,
+    if (providerModel === "chromeai:text") {
+      const { text } = await generateText({
+        model: chromeai() as any,
+        prompt: "Who are you?",
       })
-      setResult(result.text)
+      setResult(text)
       return
     }
 
