@@ -123,29 +123,54 @@ export function Dashboard() {
             </Tooltip>
           ))}
         </nav>
-        <nav className="mt-auto grid gap-1 p-2">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="mt-auto rounded-lg"
-                aria-label="Help"
-              >
-                <Link
-                  href="https://docs.heygen.com/docs/streaming-avatars-api"
-                  target="_blank"
+        <div className="mt-auto grid gap-1 p-2">
+          <nav>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="mt-auto rounded-lg"
+                  aria-label="Help"
                 >
-                  <BookOpenTextIcon className="size-5" />
-                </Link>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="right" sideOffset={5}>
-              Documentation
-            </TooltipContent>
-          </Tooltip>
-        </nav>
+                  <Link
+                    href="https://docs.heygen.com/docs/streaming-avatar-sdk-reference"
+                    target="_blank"
+                  >
+                    <BookOpenTextIcon className="size-5" />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right" sideOffset={5}>
+                Streaming Avatar SDK API Reference
+              </TooltipContent>
+            </Tooltip>
+          </nav>
+          <nav>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="mt-auto rounded-lg"
+                  aria-label="Help"
+                >
+                  <Link
+                    href="https://docs.heygen.com/docs/streaming-avatars-api"
+                    target="_blank"
+                  >
+                    <BookOpenTextIcon className="size-5" />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="right" sideOffset={5}>
+                Streaming API Documentation
+              </TooltipContent>
+            </Tooltip>
+          </nav>
+        </div>
       </aside>
       <div className="flex flex-col">
         <header className="sticky top-0 z-10 flex h-[53px] items-center gap-1 border-b bg-background px-4">
@@ -185,7 +210,6 @@ export function Dashboard() {
             className="relative hidden flex-col items-start gap-8 md:flex"
             x-chunk="dashboard-03-chunk-0"
           >
-            {/* <Playground /> */}
             {selectedNavItem.content}
           </div>
           <div

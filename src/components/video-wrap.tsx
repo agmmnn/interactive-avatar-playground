@@ -37,11 +37,8 @@ export default function VideoWrap() {
       const video = mediaStreamRef.current
       const canvas = mediaCanvasRef.current
       if (!canvas || !video) return
-      const ctx = canvas.getContext("2d")
+      const ctx = canvas.getContext("2d", { willReadFrequently: true })
       if (!ctx) return
-
-      // Optimize readback operations
-      ctx.getContextAttributes().willReadFrequently = true
 
       canvas.width = video.videoWidth
       canvas.height = video.videoHeight
