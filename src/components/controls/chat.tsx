@@ -50,7 +50,6 @@ export function Chat() {
     error,
     stop,
   } = useChat({
-    streamMode: "stream-data",
     onResponse: (response) => {
       console.log("ChatGPT Response:", response)
     },
